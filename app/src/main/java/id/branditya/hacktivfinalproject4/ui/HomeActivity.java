@@ -98,7 +98,6 @@ public class HomeActivity extends AppCompatActivity {
                 tvArrivalCity.setText("Riau");
                 dialog.dismiss();
             });
-            ;
             dialog.show();
         });
     }
