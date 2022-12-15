@@ -218,7 +218,7 @@
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="4dp"
                         android:layout_marginEnd="16dp"
-                        android:text="Fri, 23 Jul 2019"
+                        android:text="Fri, 16 Dec 2022"
                         android:textStyle="bold"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@id/iv_icon_date"
