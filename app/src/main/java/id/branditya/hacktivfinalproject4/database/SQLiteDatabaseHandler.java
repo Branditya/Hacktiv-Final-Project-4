@@ -41,10 +41,10 @@ public class SQLiteDatabaseHandler extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(CREATE_BUS_TABLE);
 
         Bus bus1 = new Bus("Sempati Star", "Medan", "17:35",
-                "Pekanbaru", "09:10", "9/10", "Friday, 23 Jul 2019",
+                "Pekanbaru", "09:10", "9/10", "Fri, 16 Dec 2022",
                 "13h 45m", 166000);
         Bus bus2 = new Bus("Pahala Kencana", "Medan", "02:30",
-                "Riau", "05:20", "8/10", "Friday, 23 Jul 2019",
+                "Riau", "05:20", "8/10", "Fri, 16 Dec 2022",
                 "3h 50m", 80000);
         addBus(sqLiteDatabase, bus1);
         addBus(sqLiteDatabase, bus2);
@@ -116,12 +116,13 @@ public class SQLiteDatabaseHandler extends SQLiteOpenHelper {
         return bus;
     }
 
-    public List<Bus> getBusBySearch(String departureCity, String arrivalCity) {
+    public List<Bus> getBusBySearch(String departureCity, String arrivalCity, String busDate) {
         List<Bus> busList = new ArrayList<>();
 
         String selectQuery = "SELECT * FROM " + TABEL_BUS + " WHERE " + BUS_DEPARTURE_CITY +
                 "=" + "'" + departureCity + "'" + " AND " + BUS_ARRIVAL_CITY + "=" +
-                "'" + arrivalCity + "'";
+                "'" + arrivalCity + "'" + " AND " + BUS_DATE + "=" +
+                "'" + busDate + "'";
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
         if (cursor.moveToFirst()) {

@@ -1,8 +1,10 @@
 package id.branditya.hacktivfinalproject4.ui;
 
+import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -12,7 +14,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.slider.Slider;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Locale;
 
 import id.branditya.hacktivfinalproject4.R;
 import id.branditya.hacktivfinalproject4.adapter.BusAdapter;
@@ -27,6 +32,7 @@ public class BusScheduleActivity extends AppCompatActivity {
     TextView tvDepartureCity;
     TextView tvArrivalCity;
     TextView tvUnavailableBus;
+    TextView tvBusDate;
     ListView listview;
     ImageView btnDropdownDepartureCity;
     ImageView btnDropdownArrivalCity;
@@ -43,6 +49,7 @@ public class BusScheduleActivity extends AppCompatActivity {
         btnDropdownDepartureCity = findViewById(R.id.btn_dropdown_departure);
         btnDropdownArrivalCity = findViewById(R.id.btn_dropdown_arrival);
         tvPassengerCount = findViewById(R.id.tv_passenger);
+        tvBusDate = findViewById(R.id.tv_bus_date);
         listview = findViewById(R.id.lv_buss_schedule);
         tvUnavailableBus = findViewById(R.id.tv_unavailable_bus);
         ImageView btnBack = findViewById(R.id.btn_back);
@@ -50,10 +57,12 @@ public class BusScheduleActivity extends AppCompatActivity {
         tvDepartureCity.setText(bundle.getString("KEY_DEPARTURE_CITY"));
         tvArrivalCity.setText(bundle.getString("KEY_ARRIVAL_CITY"));
         tvPassengerCount.setText(bundle.getString("KEY_PASSENGER_COUNT"));
+        tvBusDate.setText(bundle.getString("KEY_BUS_DATE"));
 
         selectDepartureCity();
         selectArrivalCity();
         selectPassengerCount();
+        selectBusDate();
         getBusData();
 
         btnBack.setOnClickListener(view -> {
@@ -154,9 +163,10 @@ public class BusScheduleActivity extends AppCompatActivity {
     private void getBusData() {
         busses = (ArrayList<Bus>) db.getBusBySearch(
                 tvDepartureCity.getText().toString(),
-                tvArrivalCity.getText().toString()
+                tvArrivalCity.getText().toString(),
+                tvBusDate.getText().toString()
         );
-        if (busses.isEmpty()){
+        if (busses.isEmpty()) {
             tvUnavailableBus.setVisibility(View.VISIBLE);
         } else {
             tvUnavailableBus.setVisibility(View.GONE);
@@ -164,5 +174,25 @@ public class BusScheduleActivity extends AppCompatActivity {
         busAdapter = new BusAdapter(this, busses, db,
                 Integer.parseInt(tvPassengerCount.getText().toString()));
         listview.setAdapter(busAdapter);
+    }
+
+    private void selectBusDate() {
+        tvBusDate.setOnClickListener(view -> {
+            SimpleDateFormat dateFormatter = new SimpleDateFormat("EEE, dd MMM yyyy", Locale.US);
+            Calendar newCalendar = Calendar.getInstance();
+            DatePickerDialog datePickerDialog = new DatePickerDialog(this,
+                    new DatePickerDialog.OnDateSetListener() {
+                        @Override
+                        public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                            Calendar newDate = Calendar.getInstance();
+                            newDate.set(year, monthOfYear, dayOfMonth);
+
+                            tvBusDate.setText(dateFormatter.format(newDate.getTime()));
+                            getBusData();
+                        }
+                    }, newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));
+
+            datePickerDialog.show();
+        });
     }
 }
