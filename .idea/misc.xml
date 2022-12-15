@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Dandy wp/AndroidStudioProjects/HacktivFinalProject4/app/src/main/res/drawable-v24/background_btn_grey.xml" value="0.1105" />
+        <entry key="..\:/Users/Dandy wp/AndroidStudioProjects/HacktivFinalProject4/app/src/main/res/drawable/background_btn_purple.xml" value="0.1" />
+        <entry key="..\:/Users/Dandy wp/AndroidStudioProjects/HacktivFinalProject4/app/src/main/res/drawable/background_btn_white.xml" value="0.1" />
+        <entry key="..\:/Users/Dandy wp/AndroidStudioProjects/HacktivFinalProject4/app/src/main/res/drawable/dotted.xml" value="0.1755" />
+        <entry key="..\:/Users/Dandy wp/AndroidStudioProjects/HacktivFinalProject4/app/src/main/res/drawable/dotted_vertical.xml" value="0.1105" />
+        <entry key="..\:/Users/Dandy wp/AndroidStudioProjects/HacktivFinalProject4/app/src/main/res/drawable/rounded_grey_btn_bottomsheet.xml" value="0.1" />
+        <entry key="..\:/Users/Dandy wp/AndroidStudioProjects/HacktivFinalProject4/app/src/main/res/layout/activity_bus_detail.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/Dandy wp/AndroidStudioProjects/HacktivFinalProject4/app/src/main/res/layout/activity_bus_schedule.xml" value="0.14666666666666667" />
+        <entry key="..\:/Users/Dandy wp/AndroidStudioProjects/HacktivFinalProject4/app/src/main/res/layout/activity_home.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/Dandy wp/AndroidStudioProjects/HacktivFinalProject4/app/src/main/res/layout/activity_login.xml" value="0.14666666666666667" />
+        <entry key="..\:/Users/Dandy wp/AndroidStudioProjects/HacktivFinalProject4/app/src/main/res/layout/activity_register.xml" value="0.22" />
+        <entry key="..\:/Users/Dandy wp/AndroidStudioProjects/HacktivFinalProject4/app/src/main/res/layout/activity_splash_screen.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/Dandy wp/AndroidStudioProjects/HacktivFinalProject4/app/src/main/res/layout/dialog_passenger_count.xml" value="0.3047619047619048" />
+        <entry key="..\:/Users/Dandy wp/AndroidStudioProjects/HacktivFinalProject4/app/src/main/res/layout/item_bus_info.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/Dandy wp/AndroidStudioProjects/HacktivFinalProject4/app/src/main/res/layout/layout_dialog_passenger_count.xml" value="0.3368421052631579" />
+        <entry key="..\:/Users/Dandy wp/AndroidStudioProjects/HacktivFinalProject4/app/src/main/res/layout/layout_dialog_select_city.xml" value="0.14666666666666667" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
